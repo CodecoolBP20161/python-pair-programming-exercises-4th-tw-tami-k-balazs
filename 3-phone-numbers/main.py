@@ -4,13 +4,16 @@ from person import Person
 
 
 def open_csv(file_name):
-    # implent this function
-    pass  # delete this
+    with open(file_name, 'rb') as myfile:
+        text = myfile.readlines()
+        x = [i.strip('\n').split(',')for i in text]
+        y = {i[0]: i[1].replace(" ", "").replace("-", "") for i in x}
 
+        print(y)
 
+open_csv("phone_data_1000.csv")
 def get_csv_file_name(argv_list):
-    # implent this function
-    pass  # delete this
+    return argv_list[0]
 
 
 def format_output(person):
